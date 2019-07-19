@@ -1,33 +1,72 @@
+h1 {
+  color: black;
+  font-size: large;
+}
+
+strong {
+  color: black;
+  margin: 1rem;
+}
+
+button {
+  background-color: #87ceeb;
+  margin: 10px 5px;
+  font-size: large;
+}
+
+input {
+  font-size: medium;
+  margin: 10px 5px;
+  min-height: 20px;
+  min-width: 18rem;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
+.App-body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 2px 2px 2px white;
+  border-radius: 5px;
+  min-height: 30rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gold {
+  background-color: gold;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: darkturquoise;
+}
+
+.card {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  border-radius: 7px;
+}
+
+.input-section {
+  display: flex;
 }
