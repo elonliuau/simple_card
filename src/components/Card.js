@@ -9,7 +9,8 @@ class Card extends Component {
     render() {
         return (
             <div className='card'>
-                <strong>{this.props.cardMessage}</strong>
+                <strong>{this.props.fullName}</strong>
+                <p>{this.props.birthDate}</p>
                 <button onClick={this.removeCard}><b>Done!</b></button>
             </div>
         )

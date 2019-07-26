@@ -18,7 +18,11 @@ input {
   font-size: medium;
   margin: 10px 5px;
   min-height: 20px;
-  min-width: 18rem;
+  min-width: 24.25rem;
+}
+
+p {
+  color: gray;
 }
 
 .App {

@@ -3,26 +3,35 @@ import Card from "./Card";
 
 class Section extends Component {
     state = {
-        textMessage: '',
+        fullName: '',
+        birthDate: '',
         cards: []
     };
 
     addCard = () => {
-        let newCardMessage = this.state.textMessage;
+        let newCard = {
+            fullName: this.state.fullName,
+            birthDate: this.state.birthDate
+        }
 
         // 定义用来更新state的函数，PPT中setState第二种用法
         const updateState = (prevState) => {
-            prevState.cards.push(newCardMessage)
-            return { textMessage: '', cards: prevState.cards }
+            prevState.cards.push(newCard)
+            return { fullName: '', birthDate: '', cards: prevState.cards }
         };
 
         // 注意此处传入的参数是updateState函数定义，不是函数调用
         this.setState(updateState)
     };
 
-    inputChange = (event) => {
+    fullNameInputChange = (event) => {
         //PPT中setState第一种用法
-        this.setState({textMessage: event.target.value})
+        this.setState({fullName: event.target.value})
+    };
+
+    birthDateInputChange = (event) => {
+        //PPT中setState第一种用法
+        this.setState({birthDate: event.target.value})
     };
 
     removeCard = (index) => {
@@ -38,17 +47,21 @@ class Section extends Component {
         this.setState(updateState)
     };
 
+    clearText = () => {
+        this.setState({textMessage: ''})
+    };
+
     render() {
         // render function 返回JSX代码，在JSX中任何需要调用javascript的地方需要加花括号{}
         return (
             <div className={'container ' + this.props.theme}> {/* 动态加 className 可以得到不同的 style */}
                 <h1>{this.props.header}</h1>
-                {/* 注意在 onChange handler 中出入的是函数定义，不是函数调用 */}
-                <input value={this.state.textMessage} onChange={this.inputChange} type='text'/>
+                <input value={this.state.fullName} onChange={this.fullNameInputChange} type='text'/>
+                <input value={this.state.birthDate} onChange={this.birthDateInputChange} type='text'/>
                 <button onClick={this.addCard} disabled={this.state.textMessage === ''}>Add Card</button>
                 {
-                    this.state.cards.map((message, index) =>
-                        <Card cardMessage={message} index={index} removeCard={this.removeCard} key={index}/>
+                    this.state.cards.map((card, index) =>
+                        <Card fullName={card.fullName} birthDate={card.birthDate} index={index} removeCard={this.removeCard} key={index}/>
                     )
                 }
             </div>
